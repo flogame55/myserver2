@@ -1,7 +1,7 @@
 name: main
 on: [push]
 jobs:
-  job1:
+  unit-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,8 +13,5 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Run Test
+      - name: Run Unit Test
         run: node dist/Test1.js
-    
-
-    

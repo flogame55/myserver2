@@ -3,11 +3,20 @@ on:
   workflow_run:
     workflows: ["Workflow 3"]
     types:
-    - completed
+      - completed
 
 jobs:
-  job1:
+  test-intentional-fail:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: test_workflow2
-        run: echo "workflow4"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run Test (Intentionally Fail)
+        run: node dist/Test4.js

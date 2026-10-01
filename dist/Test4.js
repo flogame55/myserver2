@@ -10,20 +10,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Utils_1 = require("./Utils");
-const unit_test = () => __awaiter(void 0, void 0, void 0, function* () {
-    if (Utils_1.utils.splitBill(100, 4) === 25) {
-        console.log("Test case 1 passed (splitBill: 100 / 4 = 25)");
+const test_fail = () => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("--- Starting Intentionally Failing Test ---");
+    const total = 100;
+    const people = 4;
+    const perPerson = Utils_1.utils.splitBill(total, people);
+    // ตั้งใจให้ไม่ผ่าน: คาดหวัง 999 แต่ค่าจริงคือ 25
+    if (perPerson === 999) {
+        console.log("Test Passed");
     }
     else {
-        console.log("Test case 1 Failed if (utils.splitBill(100, 4) === 25)");
-        process.exit(1);
-    }
-    if (Utils_1.utils.addTax07(100) === 107) {
-        console.log("Test case 2 passed (addTax07: 100 + 7% = 107)");
-    }
-    else {
-        console.log("Test case 2 Failed if (utils.addTax07(100) === 107)");
+        console.log(`❌ Test Intentionally Failed: Expected 999, but got ${perPerson}`);
         process.exit(1);
     }
 });
-unit_test();
+test_fail();

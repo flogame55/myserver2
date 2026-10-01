@@ -3,11 +3,20 @@ on:
   workflow_run:
     workflows: ["main"]
     types:
-    - completed
+      - completed
 
 jobs:
-  job1:
+  test-no-tax:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: test_workflow2
-        run: echo "hello world"
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install node js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Run Test (No Tax)
+        run: node dist/Test2.js

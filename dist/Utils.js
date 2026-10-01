@@ -7,4 +7,13 @@ function hello() {
 function add(a, b) {
     return a + b;
 }
-exports.utils = { hello, add };
+function addTax07(price) {
+    return price + (price * 0.07);
+}
+function splitBill(total, people) {
+    if (people <= 0) {
+        throw new Error("Number of people must be greater than 0");
+    }
+    return total / people;
+}
+exports.utils = { hello, add, addTax07, splitBill };
