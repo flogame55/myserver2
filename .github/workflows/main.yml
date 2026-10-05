@@ -13,5 +13,8 @@ jobs:
         with:
           node-version: '24'
 
-      - name: Run Unit Test
+      - name: Run Unit Test (splitBill & addTax07)
         run: node dist/Test1.js
+
+      - name: Run Unit Test (User Email & Age Validation)
+        run: node dist/TestUserValidation.js

@@ -1,19 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.utils = void 0;
+exports.validateEmail = validateEmail;
+exports.validateAge = validateAge;
 function hello() {
     console.log("Hello, world!");
 }
 function add(a, b) {
     return a + b;
 }
-function addTax07(price) {
-    return price + (price * 0.07);
+// ตรวจสอบรูปแบบ Email (ต้องมี @ และ domain)
+function validateEmail(email) {
+    if (!email || typeof email !== 'string')
+        return false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 }
-function splitBill(total, people) {
-    if (people <= 0) {
-        throw new Error("Number of people must be greater than 0");
-    }
-    return total / people;
+// ตรวจสอบอายุ (ต้องเป็นตัวเลข 1 - 120 ปี)
+function validateAge(age) {
+    if (typeof age !== 'number' || isNaN(age))
+        return false;
+    return age >= 1 && age <= 120;
 }
-exports.utils = { hello, add, addTax07, splitBill };
+exports.utils = { hello, add, validateEmail, validateAge };

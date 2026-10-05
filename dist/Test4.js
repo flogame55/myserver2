@@ -9,12 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Utils_1 = require("./Utils");
+const splitBill_1 = require("./splitBill");
 const test_fail = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log("--- Starting Intentionally Failing Test ---");
     const total = 100;
     const people = 4;
-    const perPerson = Utils_1.utils.splitBill(total, people);
+    const perPerson = (0, splitBill_1.splitBill)(total, people);
     // ตั้งใจให้ไม่ผ่าน: คาดหวัง 999 แต่ค่าจริงคือ 25
     if (perPerson === 999) {
         console.log("Test Passed");

@@ -9,13 +9,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Utils_1 = require("./Utils");
+const addTax07_1 = require("./addTax07");
+const splitBill_1 = require("./splitBill");
 const test_with_tax = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log("--- Starting Test (With Tax 7%) ---");
     const price = 100;
     const people = 4;
-    const totalWithTax = Utils_1.utils.addTax07(price);
-    const perPerson = Utils_1.utils.splitBill(totalWithTax, people);
+    const totalWithTax = (0, addTax07_1.addTax07)(price);
+    const perPerson = (0, splitBill_1.splitBill)(totalWithTax, people);
     if (totalWithTax === 107 && perPerson === 26.75) {
         console.log("✅ Test Passed: 100 + 7% = 107, 107 / 4 = 26.75");
     }

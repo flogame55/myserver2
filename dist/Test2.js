@@ -9,12 +9,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Utils_1 = require("./Utils");
+const splitBill_1 = require("./splitBill");
 const test_no_tax = () => __awaiter(void 0, void 0, void 0, function* () {
     console.log("--- Starting Test (No Tax) ---");
     const total = 100;
     const people = 4;
-    const perPerson = Utils_1.utils.splitBill(total, people);
+    const perPerson = (0, splitBill_1.splitBill)(total, people);
     if (perPerson === 25) {
         console.log("✅ Test Passed: 100 / 4 = 25");
     }
