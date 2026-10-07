@@ -34,6 +34,7 @@ app.get('/health', (req, res) => {
     const isDbConnected = mongoose_1.default.connection.readyState === 1;
     res.status(200).json({
         status: 'ok',
+        version: '1.0.1',
         server: 'running',
         database: isDbConnected ? 'connected' : 'disconnected',
     });
